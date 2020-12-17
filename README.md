@@ -1,25 +1,30 @@
-# Nashville Diaper Connection's Impact on Low-Incme Families in Middle Tennessee
+# Nashville Diaper Connection's Impact on Low-Income Families in Middle Tennessee
 
-GitHub repo size GitHub contributors GitHub stars GitHub forks Twitter Follow
+## Table of contents
+* Introduction
+* Screenshots
+* Technologies
+* Setup
+* Contributing
+* Contact
 
-Project name is a <utility/tool/feature> that allows <insert_target_audience> to do <action/task_it_does>.
+## Introduction
+By using data supplied by [Nashville Diaper Connection](https://www.nashvillediaperconnection.org/) is one of over 300 diaper banks in the U.S. that distributes diapers to families in need. Diapers are not covered by federal aid programs such as food stamps, WIC (women, infants, an children), or SNAP. Money from TANF (Temporary Assistance for Needy Families) can be used for buying diapers, but TANF funds max out at $270/month for families in Tennessee and also are used for other necessities such as food, rent/mortgage, utilities, medical expenses, transportation, etc.
 
-Additional line of information text about what the project does. Your introduction should be around 2 or 3 sentences. Don't go overboard, people won't read it.
+By using internal data providied by Nashville Diaper Connection along with outside data from U.S. Census, the State of TN, the National Diaper Bank Network, and various reports and surveys, I analyzed the demographics of low-income families who have a need for diapers along with the impact that NDC has on middle TN by supplying the diapers.
 
-## Prerequisites
-Before you begin, ensure you have met the following requirements:
-
-You have installed the latest version of <coding_language/dependency/requirement_1>
-You have a <Windows/Linux/Mac> machine. State which OS is supported/which is not.
-You have read <guide/link/documentation_related_to_project>.
-
-## Built With
+## Technologies
 
 * [Excel](https://www.microsoft.com/en-us/microsoft-365/excel)
 * [Python](https://www.python.org/)
-* 
+* [Jupyter Notebook](https://jupyter.org/
+)
+* Folium
+* Matplotlib
+* Tableau
+* Power BI
 
-## Installing <project_name>
+## Setup
 To install <project_name>, follow these steps:
 
 Linux and macOS:
@@ -53,7 +58,7 @@ Thanks to the following people who have contributed to this project:
 You might want to consider using something like the All Contributors specification and its emoji key.
 
 ## Contact
-If you want to contact me you can reach me at your_email@address.com.
+If you want to contact me you can reach me at paul.ballenger1@gmail.com.
 
 ## License
 This project uses the following license: <license_name>.
