@@ -1505,9 +1505,17 @@
     <mapsource name='Tableau' />
   </mapsources>
   <actions>
-    <action caption='Filter 1 (generated)' name='[Action2]'>
+    <action caption='Filter 1 (generated)' name='[Action1]'>
       <activation auto-clear='true' type='on-select' />
       <source dashboard='pov' type='sheet' worksheet='pov_number' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='pov' />
+      </command>
+    </action>
+    <action caption='Filter 2 (generated)' name='[Action2]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='pov' type='sheet' worksheet='pov_%' />
       <command command='tsc:tsl-filter'>
         <param name='special-fields' value='all' />
         <param name='target' value='pov' />
@@ -1926,8 +1934,12 @@
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0nrhkve150ib7i1fq0lc309m3xcf].[sum:wic_\%:qk]&quot;' />
             </groupfilter>
           </filter>
+          <filter class='categorical' column='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]' filter-group='3'>
+            <groupfilter function='level-members' level='[none:Location:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
           <slices>
             <column>[federated.0nrhkve150ib7i1fq0lc309m3xcf].[:Measure Names]</column>
+            <column>[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -1978,11 +1990,13 @@
             <datasource caption='pov_tn' name='federated.0nrhkve150ib7i1fq0lc309m3xcf' />
           </datasources>
           <datasource-dependencies datasource='federated.0nrhkve150ib7i1fq0lc309m3xcf'>
+            <column datatype='string' name='[Location]' role='dimension' type='nominal' />
             <column caption='Time Frame' datatype='integer' name='[TimeFrame]' role='measure' type='quantitative' />
             <column-instance column='[pov_number]' derivation='Avg' name='[avg:pov_number:qk]' pivot='key' type='quantitative' />
             <column-instance column='[snap_number]' derivation='Avg' name='[avg:snap_number:qk]' pivot='key' type='quantitative' />
             <column-instance column='[tanf_number]' derivation='Avg' name='[avg:tanf_number:qk]' pivot='key' type='quantitative' />
             <column-instance column='[wic_number]' derivation='Avg' name='[avg:wic_number:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Location]' derivation='None' name='[none:Location:nk]' pivot='key' type='nominal' />
             <column-instance column='[TimeFrame]' derivation='None' name='[none:TimeFrame:qk]' pivot='key' type='quantitative' />
             <column caption='Pov Number' datatype='real' name='[pov_number]' role='dimension' type='ordinal' />
             <column caption='Snap Number' datatype='real' name='[snap_number]' role='dimension' type='ordinal' />
@@ -1997,10 +2011,12 @@
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0nrhkve150ib7i1fq0lc309m3xcf].[avg:wic_number:qk]&quot;' />
             </groupfilter>
           </filter>
-          <filter class='quantitative' column='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[avg:pov_number:qk]' included-values='in-range' />
+          <filter class='categorical' column='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]' filter-group='3'>
+            <groupfilter function='level-members' level='[none:Location:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
           <slices>
             <column>[federated.0nrhkve150ib7i1fq0lc309m3xcf].[:Measure Names]</column>
-            <column>[federated.0nrhkve150ib7i1fq0lc309m3xcf].[avg:pov_number:qk]</column>
+            <column>[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -2091,155 +2107,6 @@
     </worksheet>
   </worksheets>
   <dashboards>
-    <dashboard name='Dashboard 1'>
-      <style />
-      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
-      <zones>
-        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
-          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='7' param='horz' w='98400' x='800' y='1000'>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='98000' id='5' w='82400' x='800' y='1000'>
-              <zone h='98000' id='3' name='ndc survey 1' w='82400' x='800' y='1000'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-            </zone>
-            <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' fixed-size='160' h='98000' id='6' is-fixed='true' param='vert' w='16000' x='83200' y='1000'>
-              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='8125' id='8' name='ndc survey 1' pane-specification-id='0' param='[federated.028jp740kf1ezm1147ap51h9198f].[Multiple Values]' w='16000' x='83200' y='1000'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-            </zone>
-          </zone>
-          <zone-style>
-            <format attr='border-color' value='#000000' />
-            <format attr='border-style' value='none' />
-            <format attr='border-width' value='0' />
-            <format attr='margin' value='8' />
-          </zone-style>
-        </zone>
-      </zones>
-      <devicelayouts>
-        <devicelayout auto-generated='true' name='Phone'>
-          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
-          <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='10' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='9' param='vert' w='98400' x='800' y='1000'>
-                <zone fixed-size='280' h='98000' id='3' is-fixed='true' name='ndc survey 1' w='82400' x='800' y='1000'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='8125' id='8' name='ndc survey 1' pane-specification-id='0' param='[federated.028jp740kf1ezm1147ap51h9198f].[Multiple Values]' w='16000' x='83200' y='1000'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-              </zone>
-              <zone-style>
-                <format attr='border-color' value='#000000' />
-                <format attr='border-style' value='none' />
-                <format attr='border-width' value='0' />
-                <format attr='margin' value='8' />
-              </zone-style>
-            </zone>
-          </zones>
-        </devicelayout>
-      </devicelayouts>
-      <simple-id uuid='{380E9EB6-02B2-4434-AD21-8D552FF25850}' />
-    </dashboard>
-    <dashboard name='Dashboard 10'>
-      <style />
-      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
-      <zones>
-        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
-          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='7' param='horz' w='98400' x='800' y='1000'>
-            <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='3' param='vert' w='98400' x='800' y='1000'>
-              <zone h='23000' id='5' name='ndc survey 3' w='98400' x='800' y='1000'>
-                <layout-cache fixed-size-h='176' minwidth='180' type-h='fixed' type-w='scalable' />
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='11750' id='8' param='horz' w='98400' x='800' y='24000'>
-                <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='139' h='11750' id='10' is-fixed='true' w='14700' x='800' y='24000'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                  </zone-style>
-                </zone>
-                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' h='11750' id='9' w='68700' x='15500' y='24000'>
-                  <formatted-text>
-                    <run bold='true' fontsize='12'>According to the National Diaper Bank Network:</run>
-                    <run>Æ&#10;&#10;</run>
-                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
-                    <run fontcolor='#000000' fontsize='12'> No state or federal child safety-net program allocates dollars specifically for the purchase of diapers.</run>
-                  </formatted-text>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='solid' />
-                    <format attr='border-width' value='1' />
-                    <format attr='margin' value='4' />
-                    <format attr='background-color' value='#e9f0f1' />
-                  </zone-style>
-                </zone>
-                <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='142' h='11750' id='11' is-fixed='true' w='15000' x='84200' y='24000'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                  </zone-style>
-                </zone>
-              </zone>
-            </zone>
-          </zone>
-          <zone-style>
-            <format attr='border-color' value='#000000' />
-            <format attr='border-style' value='none' />
-            <format attr='border-width' value='0' />
-            <format attr='margin' value='8' />
-          </zone-style>
-        </zone>
-      </zones>
-      <devicelayouts>
-        <devicelayout auto-generated='true' name='Phone'>
-          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
-          <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='2' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='84000' id='1' param='vert' w='84000' x='8000' y='8000' />
-              <zone-style>
-                <format attr='border-color' value='#000000' />
-                <format attr='border-style' value='none' />
-                <format attr='border-width' value='0' />
-                <format attr='margin' value='8' />
-              </zone-style>
-            </zone>
-          </zones>
-        </devicelayout>
-      </devicelayouts>
-      <simple-id uuid='{9CDBCE71-C9A5-4C28-8FD2-6DA2286D1CD6}' />
-    </dashboard>
     <dashboard name='Story 1' type='storyboard'>
       <layout-options>
         <title>
@@ -2249,31 +2116,36 @@
         </title>
       </layout-options>
       <style />
-      <size maxheight='768' maxwidth='1024' minheight='768' minwidth='1024' preset-index='2' sizing-mode='fixed' />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' preset-index='1' sizing-mode='fixed' />
       <zones>
         <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='2' w='100000' x='0' y='0'>
-          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97916' id='9' param='vert' removable='false' w='98438' x='781' y='1042'>
-            <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97916' id='7' param='vert' removable='false' w='98438' x='781' y='1042'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97916' id='1' param='vert' removable='false' w='98438' x='781' y='1042'>
-                <zone _.fcp.SetMembershipControl.false...type='flipboard-nav' _.fcp.SetMembershipControl.true...type-v2='flipboard-nav' h='10286' id='4' paired-zone-id='5' removable='false' w='98438' x='781' y='1042' />
-                <zone _.fcp.SetMembershipControl.false...type='flipboard' _.fcp.SetMembershipControl.true...type-v2='flipboard' h='87630' id='5' paired-zone-id='4' removable='false' w='98438' x='781' y='11328'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='9' param='vert' removable='false' w='98400' x='800' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='7' param='vert' removable='false' w='98400' x='800' y='1000'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='1' param='vert' removable='false' w='98400' x='800' y='1000'>
+                <zone _.fcp.SetMembershipControl.false...type='flipboard-nav' _.fcp.SetMembershipControl.true...type-v2='flipboard-nav' h='9875' id='4' paired-zone-id='5' removable='false' w='98400' x='800' y='1000' />
+                <zone _.fcp.SetMembershipControl.false...type='flipboard' _.fcp.SetMembershipControl.true...type-v2='flipboard' h='88125' id='5' paired-zone-id='4' removable='false' w='98400' x='800' y='10875'>
                   <flipboard active-id='12' nav-type='number' show-nav-arrows='true'>
                     <story-points>
                       <story-point captured-sheet='Title Page' id='5' />
                       <story-point captured-sheet='page 2' id='6' />
                       <story-point captured-sheet='page 3' id='7' />
+                      <story-point captured-sheet='tn vs us' id='14' />
                       <story-point captured-sheet='infant_in_poverty.jpg' id='4' />
                       <story-point captured-sheet='pov' id='1'>
                         <capturedDeltas>
                           <worksheet name='pov_%'>
+                            <datasource-dependencies datasource='federated.0nrhkve150ib7i1fq0lc309m3xcf'>
+                              <column datatype='string' name='[Location]' role='dimension' type='nominal' />
+                              <column-instance column='[Location]' derivation='None' name='[none:Location:nk]' pivot='key' type='nominal' />
+                            </datasource-dependencies>
                             <filter class='categorical' column='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]'>
-                              <groupfilter function='member' level='[none:Location:nk]' member='&quot;Hickman&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+                              <groupfilter function='member' level='[none:Location:nk]' member='&quot;Cheatham&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
                               <target field='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]' />
                             </filter>
                           </worksheet>
                           <worksheet name='pov_number'>
                             <filter class='categorical' column='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]'>
-                              <groupfilter function='member' level='[none:Location:nk]' member='&quot;Hickman&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+                              <groupfilter function='member' level='[none:Location:nk]' member='&quot;Cheatham&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
                               <target field='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]' />
                             </filter>
                           </worksheet>
@@ -2283,14 +2155,14 @@
                         <capturedDeltas>
                           <worksheet name='rent'>
                             <filter class='categorical' column='[federated.1i1e3nc1jujycc13mrc4f1bz1gqu].[none:Location:nk]'>
-                              <groupfilter function='member' level='[none:Location:nk]' member='&quot;Davidson&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+                              <groupfilter function='member' level='[none:Location:nk]' member='&quot;Rutherford&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
                             </filter>
                           </worksheet>
                         </capturedDeltas>
                       </story-point>
                       <story-point captured-sheet='ndc survey #1' id='11' />
-                      <story-point captured-sheet='ndc survey 3' id='10' />
                       <story-point captured-sheet='ndc survey #2' id='12' />
+                      <story-point captured-sheet='ndc survey #3' id='13' />
                     </story-points>
                   </flipboard>
                 </zone>
@@ -2342,8 +2214,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='12' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='11' param='vert' w='98400' x='800' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='14' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='13' param='vert' w='98400' x='800' y='1000'>
                 <zone _.fcp.SetMembershipControl.false...type='bitmap' _.fcp.SetMembershipControl.true...type-v2='bitmap' fixed-size='280' h='98000' id='3' is-centered='0' is-fixed='true' w='98400' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -2412,8 +2284,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='10' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='9' param='vert' w='98400' x='800' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='12' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='11' param='vert' w='98400' x='800' y='1000'>
                 <zone _.fcp.SetMembershipControl.false...type='bitmap' _.fcp.SetMembershipControl.true...type-v2='bitmap' fixed-size='280' h='98000' id='3' is-centered='0' is-fixed='true' is-scaled='1' param='C:/Users/balle/Documents/NSS/projects/nashville_diaper_connection/files/poverty_by_county.png' w='98400' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -2515,8 +2387,51 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='2' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='84000' id='1' param='vert' w='84000' x='8000' y='8000' />
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='14' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='13' param='vert' w='98400' x='800' y='1000'>
+                <zone fixed-size='276' h='35500' id='5' is-fixed='true' name='ndc survey 1' w='98400' x='800' y='1000'>
+                  <layout-cache minwidth='288' type-h='fixed' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='32500' id='10' w='68200' x='15900' y='36500'>
+                  <formatted-text>
+                    <run bold='true' fontsize='12'>According to the National Diaper Bank Network:</run>
+                    <run>Æ&#10;&#10;</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
+                    <run fontcolor='#000000' fontsize='12'> 5 million children in the U.S. aged three or younger live in poor or low-income families.</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
+                    <run fontcolor='#000000' fontsize='12'> Infants require up to 12 diapers per day, toddlers about 8.</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
+                    <run fontcolor='#000000' fontsize='12'> Disposable diapers can cost $70 to $80 per month per baby.</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
+                    <run fontcolor='#000000' fontsize='12'> No state or federal child safety-net program allocates dollars specifically for the purchase of diapers.</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
+                    <run fontcolor='#000000' fontsize='12'>Without transportation, buying diapers at a convenience store rather than a large “big box” store can significantly increase the monthly cost of diapers.</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
+                    <run fontcolor='#000000' fontsize='12'> Most childcare centers, even free and subsidized facilities require parents to provide a day’s supply of disposable diapers.</run>
+                    <run fontsize='12'>Æ </run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#f0f1e8' />
+                  </zone-style>
+                </zone>
+              </zone>
               <zone-style>
                 <format attr='border-color' value='#000000' />
                 <format attr='border-style' value='none' />
@@ -2545,8 +2460,8 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='11750' id='8' param='horz' w='98400' x='800' y='26500'>
-                <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='145' h='11750' id='11' is-fixed='true' w='15300' x='800' y='26500'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='24625' id='8' param='horz' w='98400' x='800' y='26500'>
+                <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='145' h='24625' id='11' is-fixed='true' w='15300' x='800' y='26500'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -2554,12 +2469,18 @@
                     <format attr='margin' value='4' />
                   </zone-style>
                 </zone>
-                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='11750' id='9' w='68000' x='16100' y='26500'>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='24625' id='9' w='68000' x='16100' y='26500'>
                   <formatted-text>
                     <run bold='true' fontsize='12'>According to the National Diaper Bank Network:</run>
                     <run>Æ&#10;&#10;</run>
                     <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
                     <run fontcolor='#000000' fontsize='12'> Most childcare centers, even free and subsidized facilities require parents to provide a day’s supply of disposable diapers.</run>
+                    <run fontsize='12'>Æ </run>
+                    <run>Æ&#10;&#10;</run>
+                    <run bold='true' fontsize='12'>According to ChildCareAware.org:</run>
+                    <run>Æ&#10;&#10;</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
+                    <run fontcolor='#000000' fontsize='12'> The average cost of attending a child care center in Tennessee was $8,378/year in 2016 for an infant, which is 41.2% of single parent&apos;s income.</run>
                     <run fontsize='12'>Æ </run>
                   </formatted-text>
                   <zone-style>
@@ -2570,7 +2491,7 @@
                     <format attr='background-color' value='#f0f1e8' />
                   </zone-style>
                 </zone>
-                <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='143' h='11750' id='10' is-fixed='true' w='15100' x='84100' y='26500'>
+                <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='143' h='24625' id='10' is-fixed='true' w='15100' x='84100' y='26500'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -2593,8 +2514,42 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='2' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='84000' id='1' param='vert' w='84000' x='8000' y='8000' />
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='13' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='12' param='vert' w='98400' x='800' y='1000'>
+                <zone fixed-size='196' h='25500' id='5' is-fixed='true' name='ndc survey 2' w='98400' x='800' y='1000'>
+                  <layout-cache minwidth='220' type-h='fixed' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='11750' id='9' w='68000' x='16100' y='26500'>
+                  <formatted-text>
+                    <run bold='true' fontsize='12'>According to the National Diaper Bank Network:</run>
+                    <run>Æ&#10;&#10;</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
+                    <run fontcolor='#000000' fontsize='12'> Most childcare centers, even free and subsidized facilities require parents to provide a day’s supply of disposable diapers.</run>
+                    <run fontsize='12'>Æ </run>
+                    <run>Æ&#10;&#10;</run>
+                    <run bold='true' fontsize='12'>According to ChildCareAware.org:</run>
+                    <run>Æ&#10;&#10;</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
+                    <run fontcolor='#000000' fontsize='12'> The average cost of attending a child care center in Tennessee was $8,378/year in 2016 for an infant, which is 41.2% of single parent&apos;s income.</run>
+                    <run fontsize='12'>Æ </run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#f0f1e8' />
+                  </zone-style>
+                </zone>
+              </zone>
               <zone-style>
                 <format attr='border-color' value='#000000' />
                 <format attr='border-style' value='none' />
@@ -2606,6 +2561,118 @@
         </devicelayout>
       </devicelayouts>
       <simple-id uuid='{170332C8-A510-4064-A5CB-5C91A66A49D5}' />
+    </dashboard>
+    <dashboard name='ndc survey #3'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='7' param='horz' w='98400' x='800' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='3' param='vert' w='98400' x='800' y='1000'>
+              <zone h='23000' id='5' name='ndc survey 3' w='98400' x='800' y='1000'>
+                <layout-cache fixed-size-h='176' minwidth='180' type-h='fixed' type-w='scalable' />
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='66' h='9250' id='12' is-fixed='true' w='98400' x='800' y='24000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='11750' id='8' param='horz' w='98400' x='800' y='33250'>
+                <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='144' h='11750' id='10' is-fixed='true' w='15200' x='800' y='33250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='11750' id='9' w='68200' x='16000' y='33250'>
+                  <formatted-text>
+                    <run bold='true' fontsize='12'>According to the National Diaper Bank Network:</run>
+                    <run>Æ&#10;&#10;</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
+                    <run fontcolor='#000000' fontsize='12'> No state or federal child safety-net program allocates dollars specifically for the purchase of diapers.</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='background-color' value='#e9f0f1' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='142' h='11750' id='11' is-fixed='true' w='15000' x='84200' y='33250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='14' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='13' param='vert' w='98400' x='800' y='1000'>
+                <zone fixed-size='176' h='23000' id='5' is-fixed='true' name='ndc survey 3' w='98400' x='800' y='1000'>
+                  <layout-cache fixed-size-h='176' minwidth='180' type-h='fixed' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='11750' id='9' w='68200' x='16000' y='33250'>
+                  <formatted-text>
+                    <run bold='true' fontsize='12'>According to the National Diaper Bank Network:</run>
+                    <run>Æ&#10;&#10;</run>
+                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
+                    <run fontcolor='#000000' fontsize='12'> No state or federal child safety-net program allocates dollars specifically for the purchase of diapers.</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#e9f0f1' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{9CDBCE71-C9A5-4C28-8FD2-6DA2286D1CD6}' />
     </dashboard>
     <dashboard name='page 2'>
       <style>
@@ -2702,8 +2769,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='18' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='17' param='vert' w='98400' x='800' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='20' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='19' param='vert' w='98400' x='800' y='1000'>
                 <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' fixed-size='172' forceUpdate='true' h='22500' id='5' w='98400' x='800' y='1000'>
                   <formatted-text>
                     <run fontalignment='1'>Æ&#10;</run>
@@ -2844,8 +2911,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='12' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='11' param='vert' w='98400' x='800' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='14' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='13' param='vert' w='98400' x='800' y='1000'>
                 <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' fixed-size='150' forceUpdate='true' h='19750' id='5' w='98400' x='800' y='1000'>
                   <formatted-text>
                     <run fontalignment='1' fontcolor='#000000' fontname='Arial' fontsize='24'>Federal Programs Do Not Cover Diapers</run>
@@ -2901,45 +2968,73 @@
         <column-instance column='[Location]' derivation='None' name='[none:Location:nk]' pivot='key' type='nominal' />
       </datasource-dependencies>
       <zones>
-        <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='32500' id='8' mode='radiolist' name='pov_%' param='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]' w='16800' x='1000' y='31750' />
-        <zone h='33375' id='3' name='pov_%' w='80300' x='19800' y='875' />
-        <zone h='33500' id='10' name='pov_number' w='80500' x='19800' y='34875' />
-        <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='12250' id='11' name='pov_number' pane-specification-id='6' param='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[:Measure Names]' w='18200' x='900' y='10875' />
+        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='24' w='100000' x='0' y='0'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='30' param='horz' w='98400' x='800' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='98000' id='28' w='82400' x='800' y='1000'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='49000' id='25' param='vert' w='82400' x='800' y='1000'>
+                <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='49000' id='26' param='horz' w='82400' x='800' y='1000'>
+                  <zone h='49000' id='3' name='pov_%' w='82400' x='800' y='1000'>
+                    <layout-cache minheight='198' minwidth='159' type-h='scalable' type-w='scalable' />
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+              <zone h='49000' id='27' name='pov_number' w='82400' x='800' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' fixed-size='160' h='98000' id='29' is-fixed='true' param='vert' w='16000' x='83200' y='1000'>
+              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='13250' id='31' name='pov_number' pane-specification-id='6' param='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[:Measure Names]' w='16000' x='83200' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='35' h='5375' id='34' is-fixed='true' w='16000' x='83200' y='14250'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='32500' id='33' mode='radiolist' name='pov_%' param='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]' values='database' w='16000' x='83200' y='19625'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
       </zones>
       <devicelayouts>
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='21' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='20' param='vert' w='98400' x='800' y='1000'>
-                <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='32500' id='8' mode='dropdown' name='pov_%' param='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]' w='16800' x='1000' y='31750'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='23' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='22' param='vert' w='98400' x='800' y='1000'>
                 <zone fixed-size='267' h='33375' id='3' is-fixed='true' name='pov_%' w='80300' x='19800' y='875'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone fixed-size='268' h='33500' id='10' is-fixed='true' name='pov_number' w='80500' x='19800' y='34875'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='12250' id='11' name='pov_number' pane-specification-id='6' param='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[:Measure Names]' w='18200' x='900' y='10875'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -3005,8 +3100,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='16' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='15' param='vert' w='98400' x='800' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='18' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='17' param='vert' w='98400' x='800' y='1000'>
                 <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='98000' id='8' mode='dropdown' name='rent' param='[federated.1i1e3nc1jujycc13mrc4f1bz1gqu].[none:Location:nk]' w='16000' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -3038,6 +3133,174 @@
       </devicelayouts>
       <simple-id uuid='{11E52AF7-8429-4B15-9448-39A0445F5282}' />
     </dashboard>
+    <dashboard name='tn vs us'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='49100' id='5' param='vert' w='98400' x='800' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='bitmap' _.fcp.SetMembershipControl.true...type-v2='bitmap' h='49100' id='6' is-scaled='1' param='C:/Users/balle/Documents/NSS/projects/nashville_diaper_connection/files/tn_us.plot.png' w='98400' x='800' y='1000'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='24349' id='9' w='36800' x='16000' y='50100'>
+            <formatted-text>
+              <run>Æ&#10;</run>
+              <run fontcolor='#000000' fontsize='12'>•  </run>
+              <run fontsize='12'>Medicare Births: </run>
+              <run>Æ&#10;</run>
+              <run fontcolor='#000000' fontsize='12'>•  </run>
+              <run fontsize='12'>Infants getting WIC aid:</run>
+              <run>Æ&#10;</run>
+              <run fontcolor='#000000' fontsize='12'>•  </run>
+              <run fontsize='12'>Under Age 3 receiving TANF funds:</run>
+              <run>Æ&#10;</run>
+              <run fontcolor='#000000' fontsize='12'>•  </run>
+              <run fontsize='12'>Single Parent Households:</run>
+              <run>Æ&#10;</run>
+              <run fontcolor='#000000' fontsize='12'>•  </run>
+              <run fontsize='12'>Under Age 3 receiving Federal Support:</run>
+              <run>Æ&#10;</run>
+              <run fontcolor='#000000' fontsize='12'>•  </run>
+              <run fontsize='12'>Diaper Costs as a proportion of TANF funds:</run>
+              <run>Æ&#10;</run>
+              <run fontcolor='#000000' fontsize='12'>•  </run>
+              <run fontsize='12'>Immunization Rate:</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='24349' id='14' w='31000' x='52800' y='50100'>
+            <formatted-text>
+              <run bold='true' fontsize='12' underline='true'>TN</run>
+              <run fontsize='12'>Æ          </run>
+              <run bold='true' fontsize='12' underline='true'>US</run>
+              <run>Æ&#10;</run>
+              <run fontsize='12'>51%      43%</run>
+              <run>Æ&#10;</run>
+              <run fontsize='12'>26%      23%</run>
+              <run>Æ&#10;</run>
+              <run fontsize='12'>30%      32%</run>
+              <run>Æ&#10;</run>
+              <run fontsize='12'>40%      44%</run>
+              <run>Æ&#10;</run>
+              <run fontsize='12'>41%      28%</run>
+              <run>Æ&#10;</run>
+              <run fontsize='12'>29%      29%</run>
+              <run>Æ&#10;</run>
+              <run fontsize='12'>72%      80%</run>
+              <run>Æ&#10;</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='24349' id='15' w='15200' x='800' y='50100'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='24349' id='16' w='15400' x='83800' y='50100'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='24551' id='17' param='vert' w='98400' x='800' y='74449'>
+            <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='24551' id='18' w='98400' x='800' y='74449'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='12' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='11' param='vert' w='98400' x='800' y='1000'>
+                <zone _.fcp.SetMembershipControl.false...type='bitmap' _.fcp.SetMembershipControl.true...type-v2='bitmap' fixed-size='280' h='49000' id='6' is-fixed='true' is-scaled='1' param='C:/Users/balle/Documents/NSS/projects/nashville_diaper_connection/files/tn_us.plot.png' w='98400' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='49000' id='9' w='62400' x='17300' y='50000'>
+                  <formatted-text>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>•  </run>
+                    <run fontsize='12'>Medicare Births: </run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>•  </run>
+                    <run fontsize='12'>Infants getting WIC aid:</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>•  </run>
+                    <run fontsize='12'>Under Age 3 receiving TANF funds:</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>•  </run>
+                    <run fontsize='12'>Single Parent Households:</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>•  </run>
+                    <run fontsize='12'>Under Age 3 receiving Federal Support:</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>•  </run>
+                    <run fontsize='12'>Diaper Costs as a proportion of TANF funds:</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontsize='12'>•  </run>
+                    <run fontsize='12'>Immunization Rate:</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{3A3EAAF3-7E1E-4B96-BB49-7806ABC708AD}' />
+    </dashboard>
   </dashboards>
   <windows saved-dpi-scale-factor='0.875' source-height='114'>
     <window class='worksheet' name='pov_%'>
@@ -3063,7 +3326,7 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card param='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]' type='filter' />
+            <card mode='radiolist' param='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]' type='filter' />
             <card pane-specification-id='0' param='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[:Measure Names]' type='color' />
           </strip>
         </edge>
@@ -3093,7 +3356,6 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card param='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]' type='filter' />
             <card pane-specification-id='6' param='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[:Measure Names]' type='color' />
           </strip>
         </edge>
@@ -3291,21 +3553,14 @@
       </cards>
       <simple-id uuid='{A5CCAB18-30D4-4956-9538-2C778B4CD0C6}' />
     </window>
-    <window class='dashboard' name='Dashboard 1'>
-      <viewpoints>
-        <viewpoint name='ndc survey 1' />
-      </viewpoints>
-      <active id='3' />
-      <simple-id uuid='{AA9646F4-53E2-4EB9-813B-E5384457F515}' />
-    </window>
-    <window class='dashboard' name='Story 1'>
+    <window class='dashboard' maximized='true' name='Story 1'>
       <viewpoints />
-      <active id='3' />
+      <active id='-1' />
       <simple-id uuid='{A7FFDA38-3910-4C0A-8725-4593404EB430}' />
     </window>
     <window class='dashboard' name='infant_in_poverty.jpg'>
       <viewpoints />
-      <active id='3' />
+      <active id='-1' />
       <simple-id uuid='{A0850894-4AF0-4587-A27D-5B4D845F5E1E}' />
     </window>
     <window class='dashboard' name='Title Page'>
@@ -3334,15 +3589,20 @@
       <viewpoints>
         <viewpoint name='ndc survey 2' />
       </viewpoints>
-      <active id='3' />
+      <active id='9' />
       <simple-id uuid='{478B2D01-EA10-4599-8A94-D4F06E519B47}' />
     </window>
-    <window class='dashboard' maximized='true' name='Dashboard 10'>
+    <window class='dashboard' name='ndc survey #3'>
       <viewpoints>
         <viewpoint name='ndc survey 3' />
       </viewpoints>
-      <active id='-1' />
+      <active id='9' />
       <simple-id uuid='{F3C4DE6C-09F8-41C8-920B-E0C205FE5C0B}' />
+    </window>
+    <window class='dashboard' name='tn vs us'>
+      <viewpoints />
+      <active id='18' />
+      <simple-id uuid='{71413D92-E2D3-4820-A908-A6041B91BCE1}' />
     </window>
   </windows>
 </workbook>

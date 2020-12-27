@@ -37,6 +37,10 @@ Windows:
 * [tn.gov](https://www.tn.gov/content/dam/tn/health/documents/annual-reports/2018-Annual-Imm-24-Month-Old-Survey.pdf) - Immunization rates in TN
 * [census.gov](https://www.census.gov/data-tools/demo/saipe/#/?map_geoSelector=u18_c&s_state=47&s_year=2019&s_county=47021,47037,47081,47117,47119,47125,47141,47149,47187,47189&s_measures=u18_snc) - Under age 18 poverty in TN counties by year
 * [kidscount.org](https://datacenter.kidscount.org/data/tables/2983-children-receiving-families-first-grants-tanf#detailed/2/any/false/1729,37,871,870,573,869,36,868,867,133/any/13220,10111) - Children receiving Families First grants (TANF) in Tennessee
+* [kidscount.org](https://datacenter.kidscount.org/data/tables/3027-fair-market-rent?loc=44&loct=5#detailed/5/6430,6438,6460,6476-6477,6482,6490,6494,6513-6514/false/1729,37,871,870,573,869,36,868,867,133/any/6258) - Fair Market Rent in Tennessee
+
+* [childcareaware.org](https://www.childcareaware.org/wp-content/uploads/2016/12/State-Fact-Sheets_Tennessee.pdf) - child care cost in Tennessee
+
 <project_name>
 To use <project_name>, follow these steps:
 
