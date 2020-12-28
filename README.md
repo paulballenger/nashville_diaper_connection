@@ -41,6 +41,8 @@ Windows:
 
 * [childcareaware.org](https://www.childcareaware.org/wp-content/uploads/2016/12/State-Fact-Sheets_Tennessee.pdf) - child care cost in Tennessee
 
+* [Department of Labor and Workforce Development](https://www.tn.gov/content/dam/tn/workforce/documents/economicanalysis/EconomicAnalysisSep20.pdf) - unemployemnt data
+
 <project_name>
 To use <project_name>, follow these steps:
 
