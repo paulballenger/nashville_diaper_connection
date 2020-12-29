@@ -43,6 +43,10 @@ Windows:
 
 * [Department of Labor and Workforce Development](https://www.tn.gov/content/dam/tn/workforce/documents/economicanalysis/EconomicAnalysisSep20.pdf) - unemployemnt data
 
+* [Congressional Research Service](https://fas.org/sgp/crs/misc/RL32760.pdf) - TANF data for 2018
+
+* [Center on Budget and Policy Priorities](https://www.cbpp.org/sites/default/files/atoms/files/tanf_spending_tn.pdf) - TANF spending for Tennessee data
+
 <project_name>
 To use <project_name>, follow these steps:
 
