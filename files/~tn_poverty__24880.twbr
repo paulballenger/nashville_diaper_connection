@@ -798,14 +798,14 @@
       <style>
         <style-rule element='mark'>
           <encoding attr='color' field='[:Measure Names]' type='palette'>
-            <map to='#4e79a7'>
-              <bucket>&quot;[federated.0neeovh1q4jowv18vhhwi0h146af].[sum:Below poverty:qk]&quot;</bucket>
+            <map to='#985ca3'>
+              <bucket>&quot;[federated.0neeovh1q4jowv18vhhwi0h146af].[sum:Percent:qk]&quot;</bucket>
             </map>
-            <map to='#e15759'>
+            <map to='#b1d863'>
               <bucket>&quot;[federated.0neeovh1q4jowv18vhhwi0h146af].[sum:Total:qk]&quot;</bucket>
             </map>
-            <map to='#f28e2b'>
-              <bucket>&quot;[federated.0neeovh1q4jowv18vhhwi0h146af].[sum:Percent:qk]&quot;</bucket>
+            <map to='#ffac00'>
+              <bucket>&quot;[federated.0neeovh1q4jowv18vhhwi0h146af].[sum:Below poverty:qk]&quot;</bucket>
             </map>
           </encoding>
         </style-rule>
@@ -2284,8 +2284,9 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run fontalignment='1' fontcolor='#303030'>Child Care and Development Fund</run>
-            <run fontalignment='1'> - Money Spent and Unspent</run>
+            <run bold='true' fontalignment='1' fontcolor='#303030'>Child Care and Development Fund</run>
+            <run bold='true' fontalignment='1'> - Money Spent and Unspent</run>
+            <run fontalignment='1'>Æ&#10;&#10;</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -2308,7 +2309,12 @@
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.111ptbq0othu131a2e7e101mhykr].[sum:spent:qk]&quot;' />
             </groupfilter>
           </filter>
-          <alphabetic-sort column='[federated.111ptbq0othu131a2e7e101mhykr].[:Measure Names]' direction='ASC' />
+          <manual-sort column='[federated.111ptbq0othu131a2e7e101mhykr].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.111ptbq0othu131a2e7e101mhykr].[sum:unspent:qk]&quot;</bucket>
+              <bucket>&quot;[federated.111ptbq0othu131a2e7e101mhykr].[sum:spent:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
           <filter class='categorical' column='[federated.111ptbq0othu131a2e7e101mhykr].[none:year:nk]'>
             <groupfilter from='&quot;2017&quot;' function='range' level='[none:year:nk]' to='&quot;2019&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
@@ -2353,7 +2359,7 @@
               <style-rule element='mark'>
                 <format attr='mark-labels-show' value='true' />
                 <format attr='mark-labels-cull' value='true' />
-                <format attr='size' value='1.8680663108825684' />
+                <format attr='size' value='1.813093900680542' />
               </style-rule>
             </style>
           </pane>
@@ -2968,7 +2974,7 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run fontalignment='1'>Cost of Fair Market Rent by Year and County</run>
+            <run bold='true' fontalignment='1' fontname='Tableau Book'>Cost of Fair Market Rent by Year and County</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -2999,12 +3005,11 @@
             <encoding attr='space' class='0' field='[federated.1i1e3nc1jujycc13mrc4f1bz1gqu].[none:TimeFrame:qk]' field-type='quantitative' max='2020' min='1997' range-type='fixed' scope='cols' type='space' />
             <format attr='title' class='0' field='[federated.1i1e3nc1jujycc13mrc4f1bz1gqu].[avg:Data:qk]' scope='rows' value='Rent in Dollars' />
           </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.1i1e3nc1jujycc13mrc4f1bz1gqu].[avg:Data:qk]' value='c&quot;$&quot;#,##0;(&quot;$&quot;#,##0)' />
+          </style-rule>
           <style-rule element='quick-filter'>
-            <format attr='title' field='[federated.1i1e3nc1jujycc13mrc4f1bz1gqu].[none:Location:nk]' value='County'>
-              <formatted-text>
-                <run fontalignment='1'>County</run>
-              </formatted-text>
-            </format>
+            <format attr='title' field='[federated.1i1e3nc1jujycc13mrc4f1bz1gqu].[none:Location:nk]' value='County' />
           </style-rule>
         </style>
         <panes>
@@ -3013,6 +3018,7 @@
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
             <customized-tooltip>
               <formatted-text>
                 <run fontcolor='#787878'>Year:   </run>
@@ -3022,6 +3028,12 @@
                 <run bold='true'><![CDATA[<[federated.1i1e3nc1jujycc13mrc4f1bz1gqu].[avg:Data:qk]>]]></run>
               </formatted-text>
             </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#b1d863' />
+                <format attr='size' value='4.0442090034484863' />
+              </style-rule>
+            </style>
           </pane>
         </panes>
         <rows>[federated.1i1e3nc1jujycc13mrc4f1bz1gqu].[avg:Data:qk]</rows>
@@ -3117,7 +3129,7 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run fontalignment='1'>TNFL Spending by Tennessee for Select Years</run>
+            <run fontalignment='1'>TANF Spending by Tennessee for Select Years</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -3191,7 +3203,7 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run fontalignment='1'>Unspent and Unobligated Funds by State - 2018</run>
+            <run fontalignment='1'>Unspent and Unobligated TANF Funds by State - 2018</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -3276,47 +3288,27 @@
               <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97102' id='1' param='vert' removable='false' w='98514' x='743' y='1449'>
                 <zone _.fcp.SetMembershipControl.false...type='flipboard-nav' _.fcp.SetMembershipControl.true...type-v2='flipboard-nav' h='14312' id='4' paired-zone-id='5' removable='false' w='98514' x='743' y='1449' />
                 <zone _.fcp.SetMembershipControl.false...type='flipboard' _.fcp.SetMembershipControl.true...type-v2='flipboard' h='82790' id='5' paired-zone-id='4' removable='false' w='98514' x='743' y='15761'>
-                  <flipboard active-id='20' nav-type='number' show-nav-arrows='true'>
+                  <flipboard active-id='18' nav-type='number' show-nav-arrows='true'>
                     <story-points>
                       <story-point captured-sheet='Title Page' id='5' />
                       <story-point captured-sheet='page 2' id='6' />
                       <story-point captured-sheet='page 3' id='7' />
-                      <story-point captured-sheet='pov' id='1'>
-                        <capturedDeltas>
-                          <worksheet name='pov_%'>
-                            <filter class='categorical' column='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]'>
-                              <groupfilter function='member' level='[none:Location:nk]' member='&quot;Davidson&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-                              <target field='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]' />
-                            </filter>
-                          </worksheet>
-                          <worksheet name='pov_number'>
-                            <filter class='categorical' column='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]'>
-                              <groupfilter function='member' level='[none:Location:nk]' member='&quot;Davidson&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-                              <target field='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]' />
-                            </filter>
-                          </worksheet>
-                        </capturedDeltas>
-                      </story-point>
-                      <story-point captured-sheet='tn vs us' id='14' />
-                      <story-point captured-sheet='rent d' id='3'>
-                        <capturedDeltas>
-                          <worksheet name='rent'>
-                            <filter class='categorical' column='[federated.1i1e3nc1jujycc13mrc4f1bz1gqu].[none:Location:nk]'>
-                              <groupfilter function='member' level='[none:Location:nk]' member='&quot;Rutherford&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-                            </filter>
-                          </worksheet>
-                        </capturedDeltas>
-                      </story-point>
-                      <story-point captured-sheet='ndc survey #1' id='11' />
-                      <story-point captured-sheet='ndc survey #2' id='12' />
-                      <story-point captured-sheet='ndc survey #3' id='13' />
-                      <story-point captured-sheet='hist_pov d' id='15' />
-                      <story-point captured-sheet='infant_in_poverty.jpg' id='4' />
-                      <story-point captured-sheet='tornado' id='16' />
-                      <story-point captured-sheet='unemployment' id='17' />
-                      <story-point captured-sheet='need' id='18' />
                       <story-point captured-sheet='tanf 1' id='19'>
                         <capturedDeltas>
+                          <dashboard name='tanf 1'>
+                            <zone id='10'>
+                              <formatted-text>
+                                <run fontcolor='#000000' fontsize='10'>According to the Tennessean, Tennessee receives </run>
+                                <run bold='true' fontcolor='#000000' fontsize='10'>$190.9 million each year</run>
+                                <run fontcolor='#000000' fontsize='10'> through the federal government&apos;s Temporary Assistance for Needy Families program.</run>
+                                <run>Æ&#10;&#10;</run>
+                                <run fontcolor='#000000' fontsize='10'>In October, 2019, The Tennessean reported that Tennesseean has </run>
+                                <run bold='true' fontcolor='#000000' fontsize='10'>$732 million in unused federal block grant funds</run>
+                                <run fontcolor='#000000' fontsize='10'> designed to help poor working families,</run>
+                                <run>Æ&#10;&#10;</run>
+                              </formatted-text>
+                            </zone>
+                          </dashboard>
                           <worksheet name='tanf spending'>
                             <highlight field='[federated.0ax5d7x1b711zf15f8e3i05mkzhd].[:Measure Names]'>
                               <bucket-selection />
@@ -3325,6 +3317,40 @@
                         </capturedDeltas>
                       </story-point>
                       <story-point captured-sheet='tanf 2' id='20' />
+                      <story-point captured-sheet='pov' id='1'>
+                        <capturedDeltas>
+                          <worksheet name='pov_%'>
+                            <filter class='categorical' column='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]'>
+                              <groupfilter function='member' level='[none:Location:nk]' member='&quot;Cheatham&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+                              <target field='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]' />
+                            </filter>
+                          </worksheet>
+                          <worksheet name='pov_number'>
+                            <filter class='categorical' column='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]'>
+                              <groupfilter function='member' level='[none:Location:nk]' member='&quot;Cheatham&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+                              <target field='[federated.0nrhkve150ib7i1fq0lc309m3xcf].[none:Location:nk]' />
+                            </filter>
+                          </worksheet>
+                        </capturedDeltas>
+                      </story-point>
+                      <story-point captured-sheet='hist_pov d' id='15' />
+                      <story-point captured-sheet='rent d' id='3'>
+                        <capturedDeltas>
+                          <worksheet name='rent'>
+                            <filter class='categorical' column='[federated.1i1e3nc1jujycc13mrc4f1bz1gqu].[none:Location:nk]'>
+                              <groupfilter function='member' level='[none:Location:nk]' member='&quot;Davidson&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+                            </filter>
+                          </worksheet>
+                        </capturedDeltas>
+                      </story-point>
+                      <story-point captured-sheet='unemployment' id='17' />
+                      <story-point captured-sheet='tornado' id='16' />
+                      <story-point captured-sheet='ndc survey #3' id='13' />
+                      <story-point captured-sheet='tn vs us' id='14' />
+                      <story-point captured-sheet='ndc survey #2' id='12' />
+                      <story-point captured-sheet='ndc survey #1' id='11' />
+                      <story-point captured-sheet='infant_in_poverty.jpg' id='4' />
+                      <story-point captured-sheet='need' id='18' />
                     </story-points>
                   </flipboard>
                 </zone>
@@ -3426,9 +3452,9 @@
       <size sizing-mode='automatic' />
       <zones>
         <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
-          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97102' id='7' param='horz' w='98514' x='743' y='1449'>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='97102' id='5' w='98514' x='743' y='1449'>
-              <zone h='97102' id='3' name='hist_pov' w='98514' x='743' y='1449'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='78986' id='7' param='horz' w='98514' x='743' y='1449'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='78986' id='5' w='98514' x='743' y='1449'>
+              <zone h='78986' id='3' name='hist_pov' w='98514' x='743' y='1449'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -3437,6 +3463,39 @@
                 </zone-style>
               </zone>
             </zone>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='18116' id='25' w='49257' x='743' y='80435'>
+            <formatted-text>
+              <run bold='true' fontalignment='1' fontcolor='#ffffff' fontsize='12'>2020 Poverty Levels</run>
+              <run fontalignment='1'>Æ&#10;</run>
+              <run bold='true' fontalignment='1' fontcolor='#ffffff' fontsize='12'>(from Health and Human Services)</run>
+              <run fontalignment='1'>Æ&#10;&#10;</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='0' />
+              <format attr='background-color' value='#985ca3' />
+            </zone-style>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='18116' id='26' w='49257' x='50000' y='80435'>
+            <formatted-text>
+              <run bold='true' fontalignment='1' fontcolor='#ffffff' fontsize='10'>Family of 1: $12,760</run>
+              <run fontalignment='1'>Æ&#10;</run>
+              <run bold='true' fontalignment='1' fontcolor='#ffffff' fontsize='10'>Family of 2: $17,240</run>
+              <run fontalignment='1'>Æ&#10;</run>
+              <run bold='true' fontalignment='1' fontcolor='#ffffff' fontsize='10'>Family of 3: $21,720</run>
+              <run fontalignment='1'>Æ&#10;</run>
+              <run bold='true' fontalignment='1' fontcolor='#ffffff' fontsize='10'>Family of 4: $26,200</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='0' />
+              <format attr='background-color' value='#985ca3' />
+            </zone-style>
           </zone>
           <zone-style>
             <format attr='border-color' value='#000000' />
@@ -3639,8 +3698,8 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='42935' id='9' param='horz' w='98514' x='743' y='52898'>
-                <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='93' h='42935' id='11' is-fixed='true' w='9378' x='743' y='52898'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='29891' id='9' param='horz' w='98514' x='743' y='52898'>
+                <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='93' h='29891' id='11' is-fixed='true' w='9386' x='743' y='52898'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -3648,19 +3707,10 @@
                     <format attr='margin' value='4' />
                   </zone-style>
                 </zone>
-                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='42935' id='10' w='79851' x='10121' y='52898'>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='29891' id='10' w='79835' x='10129' y='52898'>
                   <formatted-text>
                     <run bold='true' fontsize='12'>According to the National Diaper Bank Network:</run>
                     <run>Æ&#10;&#10;</run>
-                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
-                    <run fontcolor='#000000' fontsize='12'> 5 million children in the U.S. aged three or younger live in poor or low-income families.</run>
-                    <run>Æ&#10;</run>
-                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
-                    <run fontcolor='#000000' fontsize='12'> Infants require up to 12 diapers per day, toddlers about 8.</run>
-                    <run>Æ&#10;</run>
-                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
-                    <run fontcolor='#000000' fontsize='12'> Disposable diapers can cost $70 to $80 per month per baby.</run>
-                    <run>Æ&#10;</run>
                     <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
                     <run fontcolor='#000000' fontsize='12'> No state or federal child safety-net program allocates dollars specifically for the purchase of diapers.</run>
                     <run>Æ&#10;</run>
@@ -3679,7 +3729,7 @@
                     <format attr='background-color' value='#f0f1e8' />
                   </zone-style>
                 </zone>
-                <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='92' h='42935' id='12' is-fixed='true' w='9285' x='89972' y='52898'>
+                <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='92' h='29891' id='12' is-fixed='true' w='9293' x='89964' y='52898'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -3718,15 +3768,6 @@
                   <formatted-text>
                     <run bold='true' fontsize='12'>According to the National Diaper Bank Network:</run>
                     <run>Æ&#10;&#10;</run>
-                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
-                    <run fontcolor='#000000' fontsize='12'> 5 million children in the U.S. aged three or younger live in poor or low-income families.</run>
-                    <run>Æ&#10;</run>
-                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
-                    <run fontcolor='#000000' fontsize='12'> Infants require up to 12 diapers per day, toddlers about 8.</run>
-                    <run>Æ&#10;</run>
-                    <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
-                    <run fontcolor='#000000' fontsize='12'> Disposable diapers can cost $70 to $80 per month per baby.</run>
-                    <run>Æ&#10;</run>
                     <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
                     <run fontcolor='#000000' fontsize='12'> No state or federal child safety-net program allocates dollars specifically for the purchase of diapers.</run>
                     <run>Æ&#10;</run>
@@ -4291,7 +4332,7 @@
               </zone-style>
             </zone>
             <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' fixed-size='130' h='23551' id='11' is-fixed='true' param='horz' w='98514' x='743' y='34057'>
-              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='234' h='23551' id='13' is-fixed='true' w='22470' x='743' y='34057'>
+              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='234' h='23551' id='13' is-fixed='true' w='22490' x='743' y='34057'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -4299,7 +4340,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='23551' id='12' w='52460' x='23213' y='34057'>
+              <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='23551' id='12' w='52419' x='23233' y='34057'>
                 <formatted-text>
                   <run>Æ&#10;</run>
                   <run bold='true' fontcolor='#333333' fontsize='14'>Diaper Need</run>
@@ -4313,7 +4354,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='246' h='23551' id='14' is-fixed='true' w='23584' x='75673' y='34057'>
+              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='246' h='23551' id='14' is-fixed='true' w='23605' x='75652' y='34057'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -4323,20 +4364,10 @@
               </zone>
             </zone>
             <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' fixed-size='176' h='31884' id='7' is-fixed='true' layout-strategy-id='distribute-evenly' param='horz' w='98514' x='743' y='57608'>
-              <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='31884' id='10' w='49303' x='743' y='57609'>
+              <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='31884' id='10' w='49257' x='743' y='57609'>
                 <formatted-text>
                   <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='60' underline='true'>1 in 3</run>
-                </formatted-text>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                  <format attr='background-color' value='#c0c0c0' />
-                </zone-style>
-              </zone>
-              <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='31884' id='8' w='49211' x='50046' y='57609'>
-                <formatted-text>
+                  <run>Æ&#10;</run>
                   <run fontcolor='#000000' fontname='Arial' fontsize='12'>Mothers in the U.S. struggle to afford diapers, according to a 2013 study by Pediatrics, the journal of the American Academy of Pediatrics.</run>
                 </formatted-text>
                 <zone-style>
@@ -4345,7 +4376,24 @@
                   <format attr='border-width' value='0' />
                   <format attr='margin' value='4' />
                   <format attr='padding' value='10' />
-                  <format attr='background-color' value='#d4d4d4' />
+                  <format attr='background-color' value='#c0c0c0' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='31884' id='8' w='49257' x='50000' y='57609'>
+                <formatted-text>
+                  <run bold='true' fontcolor='#000000' fontsize='12'>•  Infants require up to 12 diapers per day, toddlers about 8.</run>
+                  <run>Æ&#10;</run>
+                  <run bold='true' fontcolor='#000000' fontsize='12'>•  Disposable diapers can cost $70 to $80 per month per baby.</run>
+                  <run>Æ&#10;</run>
+                  <run bold='true' fontcolor='#000000' fontsize='12'>•  5 million children in the U.S. aged three or younger live in poor or low-income families.</run>
+                </formatted-text>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                  <format attr='padding' value='10' />
+                  <format attr='background-color' value='#c0c0c0' />
                 </zone-style>
               </zone>
             </zone>
@@ -4396,6 +4444,8 @@
                 <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='31884' id='10' w='49303' x='743' y='57609'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='60' underline='true'>1 in 3</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontname='Arial' fontsize='12'>Mothers in the U.S. struggle to afford diapers, according to a 2013 study by Pediatrics, the journal of the American Academy of Pediatrics.</run>
                   </formatted-text>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -4408,7 +4458,11 @@
                 </zone>
                 <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='31884' id='8' w='49211' x='50046' y='57609'>
                   <formatted-text>
-                    <run fontcolor='#000000' fontname='Arial' fontsize='12'>Mothers in the U.S. struggle to afford diapers, according to a 2013 study by Pediatrics, the journal of the American Academy of Pediatrics.</run>
+                    <run bold='true' fontcolor='#000000' fontsize='12'>•  Infants require up to 12 diapers per day, toddlers about 8.</run>
+                    <run>Æ&#10;</run>
+                    <run bold='true' fontcolor='#000000' fontsize='12'>•  Disposable diapers can cost $70 to $80 per month per baby.</run>
+                    <run>Æ&#10;</run>
+                    <run bold='true' fontcolor='#000000' fontsize='12'>•  5 million children in the U.S. aged three or younger live in poor or low-income families.</run>
                   </formatted-text>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -4460,14 +4514,11 @@
               </zone>
               <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='40580' id='8' w='70565' x='14671' y='30072'>
                 <formatted-text>
-                  <run bold='true' fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
-                  <run bold='true' fontcolor='#202122' fontsize='14'>Diapers are not an allowable expense for federal assistance through programs such as the Women, Infant and Children&apos;s Program (WIC) and the Supplental Nutritional Assistance Program (SNAP).</run>
+                  <run bold='true' fontcolor='#000000' fontsize='14'>• Diapers are not an allowable expense for federal assistance through programs such as the Supplental Nutritional Assistance Program (SNAP) and the Women, Infant and Children&apos;s Program (WIC).</run>
                   <run>Æ&#10;&#10;</run>
-                  <run bold='true' fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
-                  <run bold='true' fontcolor='#202122' fontsize='14'>Some help for diapers is provided by the Temporary Assistance for Needy Families (TANF) program, but not enough.</run>
+                  <run bold='true' fontcolor='#000000' fontsize='14'>• Some help for diapers is provided by the Temporary Assistance for Needy Families (TANF) program, but not enough.</run>
                   <run>Æ&#10;&#10;</run>
-                  <run bold='true' fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
-                  <run bold='true' fontcolor='#202122' fontsize='14'>Tennessee has a $741 reserve of unused TANF funds and no clear plan for distributing it.</run>
+                  <run bold='true' fontcolor='#000000' fontsize='14'>• In 2019, Tennessee had $732 million in unused TANF funds and no clear plan for distributing it.</run>
                 </formatted-text>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
@@ -4520,14 +4571,11 @@
                 </zone>
                 <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='40580' id='8' w='70565' x='14671' y='30072'>
                   <formatted-text>
-                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
-                    <run bold='true' fontcolor='#202122' fontsize='14'>Diapers are not an allowable expense for federal assistance through programs such as the Women, Infant and Children&apos;s Program (WIC) and the Supplental Nutritional Assistance Program (SNAP).</run>
+                    <run bold='true' fontcolor='#000000' fontsize='14'>• Diapers are not an allowable expense for federal assistance through programs such as the Supplental Nutritional Assistance Program (SNAP) and the Women, Infant and Children&apos;s Program (WIC).</run>
                     <run>Æ&#10;&#10;</run>
-                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
-                    <run bold='true' fontcolor='#202122' fontsize='14'>Some help for diapers is provided by the Temporary Assistance for Needy Families (TANF) program, but not enough.</run>
+                    <run bold='true' fontcolor='#000000' fontsize='14'>• Some help for diapers is provided by the Temporary Assistance for Needy Families (TANF) program, but not enough.</run>
                     <run>Æ&#10;&#10;</run>
-                    <run bold='true' fontcolor='#000000' fontname='Benton Sans Book' fontsize='14'>• </run>
-                    <run bold='true' fontcolor='#202122' fontsize='14'>Tennessee has a $741 reserve of unused TANF funds and no clear plan for distributing it.</run>
+                    <run bold='true' fontcolor='#000000' fontsize='14'>• In 2019, Tennessee had $732 million in unused TANF funds and no clear plan for distributing it.</run>
                   </formatted-text>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -4689,9 +4737,9 @@
       </datasource-dependencies>
       <zones>
         <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
-          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97102' id='7' param='horz' w='86722' x='12535' y='1449'>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='97102' id='5' w='86722' x='12535' y='1449'>
-              <zone h='97102' id='3' name='rent' w='86722' x='12535' y='1449'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='78261' id='7' param='horz' w='86722' x='12535' y='1449'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='78261' id='5' w='86722' x='12535' y='1449'>
+              <zone h='78261' id='3' name='rent' w='86722' x='12535' y='1449'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='solid' />
@@ -4701,12 +4749,26 @@
               </zone>
             </zone>
           </zone>
-          <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='97102' id='8' mode='radiolist' name='rent' param='[federated.1i1e3nc1jujycc13mrc4f1bz1gqu].[none:Location:nk]' w='11792' x='743' y='1449'>
+          <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='78261' id='8' mode='radiolist' name='rent' param='[federated.1i1e3nc1jujycc13mrc4f1bz1gqu].[none:Location:nk]' w='11792' x='743' y='1449'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
               <format attr='border-width' value='0' />
               <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='18841' id='35' w='98514' x='743' y='79710'>
+            <formatted-text>
+              <run fontcolor='#000000' fontsize='12'>According to the US Department of Housing and Urban Development, </run>
+              <run bold='true' fontcolor='#000000' fontsize='12'>Fair Market Rent is the 40th percentile of gross rents</run>
+              <run fontcolor='#000000' fontsize='12'> for typical, non-standard rental units occupied by recent movers in a local housing market.</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+              <format attr='background-color' value='#e6e6e6' />
             </zone-style>
           </zone>
           <zone-style>
@@ -4764,13 +4826,6 @@
               <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='31884' id='9' param='horz' w='98514' x='743' y='66667'>
                 <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='31884' id='10' w='98514' x='743' y='66667'>
                   <formatted-text>
-                    <run fontcolor='#000000'>Currently</run>
-                    <run fontcolor='#172a4a'>, there is </run>
-                    <run bold='true' fontcolor='#172a4a'>no publicly available way to monitor the TANF program or spending</run>
-                    <run fontcolor='#172a4a'>, according to the </run>
-                    <run fontcolor='#000000'>TN Comptroller of the Treasury</run>
-                    <run fontcolor='#172a4a'>. The information provided by the federal government is slow to be published and may not be accurate. In addition, neither the state budget nor the state&apos;s Comprehensive Annual Financial Report (CAFR) go into enough detail to single out TANF spending.</run>
-                    <run>Æ&#10;&#10;</run>
                     <run fontcolor='#000000' fontsize='10'>According to the Tennessean, Tennessee receives </run>
                     <run bold='true' fontcolor='#000000' fontsize='10'>$190.9 million each year</run>
                     <run fontcolor='#000000' fontsize='10'> through the federal government&apos;s Temporary Assistance for Needy Families program.</run>
@@ -4829,13 +4884,6 @@
               <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97102' id='17' param='vert' w='98514' x='743' y='1449'>
                 <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='48652' id='10' w='98514' x='743' y='49899'>
                   <formatted-text>
-                    <run fontcolor='#000000'>Currently</run>
-                    <run fontcolor='#172a4a'>, there is </run>
-                    <run bold='true' fontcolor='#172a4a'>no publicly available way to monitor the TANF program or spending</run>
-                    <run fontcolor='#172a4a'>, according to the </run>
-                    <run fontcolor='#000000'>TN Comptroller of the Treasury</run>
-                    <run fontcolor='#172a4a'>. The information provided by the federal government is slow to be published and may not be accurate. In addition, neither the state budget nor the state&apos;s Comprehensive Annual Financial Report (CAFR) go into enough detail to single out TANF spending.</run>
-                    <run>Æ&#10;&#10;</run>
                     <run fontcolor='#000000' fontsize='10'>According to the Tennessean, Tennessee receives </run>
                     <run bold='true' fontcolor='#000000' fontsize='10'>$190.9 million each year</run>
                     <run fontcolor='#000000' fontsize='10'> through the federal government&apos;s Temporary Assistance for Needy Families program.</run>
@@ -4871,9 +4919,9 @@
       <size sizing-mode='automatic' />
       <zones>
         <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
-          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='48551' id='7' param='horz' w='98514' x='743' y='1449'>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='48551' id='5' w='81708' x='743' y='1449'>
-              <zone h='48551' id='3' name='CCDF' w='81708' x='743' y='1449'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='69203' id='7' param='horz' w='98514' x='743' y='1449'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='69203' id='5' w='81692' x='743' y='1449'>
+              <zone h='69203' id='3' name='CCDF' w='81692' x='743' y='1449'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -4882,8 +4930,8 @@
                 </zone-style>
               </zone>
             </zone>
-            <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' fixed-size='181' h='48551' id='6' is-fixed='true' param='vert' w='16806' x='82451' y='1449'>
-              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' fixed-size='63' h='12862' id='8' is-fixed='true' leg-item-order='reversed' name='CCDF' pane-specification-id='1' param='[federated.111ptbq0othu131a2e7e101mhykr].[:Measure Names]' show-title='false' w='16806' x='82451' y='1449'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' fixed-size='181' h='69203' id='6' is-fixed='true' param='vert' w='16822' x='82435' y='1449'>
+              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='54' h='11232' id='15' is-fixed='true' w='16822' x='82435' y='1449'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -4891,24 +4939,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='59' h='12137' id='11' is-fixed='true' w='16806' x='82451' y='14311'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' fixed-size='113' forceUpdate='true' h='21920' id='10' is-fixed='true' w='16806' x='82451' y='26448'>
-                <formatted-text>
-                  <run bold='true' fontcolor='#000000'>Total money allocated to TN:</run>
-                  <run>Æ&#10;</run>
-                  <run bold='true' fontcolor='#000000'>2017: $138,387,502</run>
-                  <run>Æ&#10;</run>
-                  <run bold='true' fontcolor='#000000'>2018: $189,950,036</run>
-                  <run>Æ&#10;</run>
-                  <run bold='true' fontcolor='#000000'>2019: $189,024,272</run>
-                </formatted-text>
+              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' fixed-size='63' h='12862' id='8' is-fixed='true' leg-item-order='reversed' name='CCDF' pane-specification-id='1' param='[federated.111ptbq0othu131a2e7e101mhykr].[:Measure Names]' show-title='false' w='16822' x='82435' y='12681'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -4918,21 +4949,58 @@
               </zone>
             </zone>
           </zone>
-          <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='48551' id='9' w='98514' x='743' y='50000'>
+          <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='27899' id='14' w='24629' x='74628' y='70652'>
             <formatted-text>
-              <run fontcolor='#000000'>The Child Care and Development Block Grant (CCDBG) Act was enacted in 1990 and provides federal funding to states for child care subsidies for low-income families with children under age 13. Additionally, CCDBG allows for flexibility to pair state and federal funds to improve the overall quality of child care available to families within existing state and local systems. total discretionary funding of $5.826 billion in FY2020. - </run>
-              <run auto-url='true' fontcolor='#000000' hyperlink='tabdoc:load-url url=&amp;quot;https://www.ffyf.org/issues/ccdbg/&amp;quot;'>https://www.ffyf.org/issues/ccdbg/</run>
-              <run>Æ&#10;&#10;</run>
-              <run fontcolor='#000000'>The child care dollars revert back to the federal government, which redistributes the money to other states using the funds. In 2018, Tennessee was one of only two states required to return unspent funds to the federal child care fund -- the largest source of federal funding states use to help parents pay for child care.</run>
-              <run>Æ&#10;</run>
-              <run fontcolor='#000000'>During the past five years, more than $300 million in CCDF funds allocated to Tennessee went unspent, according to Tennesseans for Quality Early Education.  </run>
-              <run auto-url='true' fontcolor='#000000' hyperlink='tabdoc:load-url url=&amp;quot;https://www.tennessean.com/story/news/2019/11/05/child-care-low-income-families-federal-funding-tennessee/4154580002/&amp;quot;'>https://www.tennessean.com/story/news/2019/11/05/child-care-low-income-families-federal-funding-tennessee/4154580002/</run>
+              <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='12'>2019</run>
+              <run fontalignment='1'>Æ&#10;</run>
+              <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='12'>$189,024,272</run>
             </formatted-text>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
               <format attr='border-width' value='0' />
               <format attr='margin' value='4' />
+              <format attr='background-color' value='#d4d4d4' />
+            </zone-style>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='27899' id='16' w='24629' x='743' y='70652'>
+            <formatted-text>
+              <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='12'>Total Money Allocated to TN:</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+              <format attr='background-color' value='#d4d4d4' />
+            </zone-style>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='27899' id='17' w='24628' x='25372' y='70652'>
+            <formatted-text>
+              <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='12'>2017</run>
+              <run fontalignment='1'>Æ&#10;</run>
+              <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='12'>$138,387,502</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+              <format attr='background-color' value='#d4d4d4' />
+            </zone-style>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='27899' id='18' w='24628' x='50000' y='70652'>
+            <formatted-text>
+              <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='12'>2018</run>
+              <run fontalignment='1'>Æ&#10;</run>
+              <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='12'>$189,950,036</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+              <format attr='background-color' value='#d4d4d4' />
             </zone-style>
           </zone>
           <zone-style>
@@ -5256,7 +5324,7 @@
             </zone>
           </zone>
           <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='13996' id='6' param='horz' w='98514' x='743' y='84555'>
-            <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='196' h='13996' id='9' is-fixed='true' w='18942' x='743' y='84555'>
+            <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='196' h='13996' id='9' is-fixed='true' w='18959' x='743' y='84555'>
               <zone-style>
                 <format attr='border-color' value='#000000' />
                 <format attr='border-style' value='none' />
@@ -5264,7 +5332,7 @@
                 <format attr='margin' value='4' />
               </zone-style>
             </zone>
-            <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='13996' id='7' w='62302' x='19685' y='84555'>
+            <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='13996' id='7' w='62269' x='19702' y='84555'>
               <formatted-text>
                 <run fontsize='12'>Seasonally-adjusted unemployment rates went from 3.3% to 15.5% in the month after COVID shutdowns began.</run>
               </formatted-text>
@@ -5275,7 +5343,7 @@
                 <format attr='margin' value='4' />
               </zone-style>
             </zone>
-            <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='178' h='13996' id='8' is-fixed='true' w='17270' x='81987' y='84555'>
+            <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' fixed-size='178' h='13996' id='8' is-fixed='true' w='17286' x='81971' y='84555'>
               <zone-style>
                 <format attr='border-color' value='#000000' />
                 <format attr='border-style' value='none' />
@@ -5333,7 +5401,7 @@
       <simple-id uuid='{E7896EF8-71F6-40EC-9E3B-DCA3CEE4090F}' />
     </dashboard>
   </dashboards>
-  <windows saved-dpi-scale-factor='0.875' source-height='240'>
+  <windows pres-mode='true' saved-dpi-scale-factor='0.875' source-height='240'>
     <window class='worksheet' name='pov_%'>
       <cards>
         <edge name='left'>
@@ -5420,16 +5488,6 @@
         </edge>
       </cards>
       <simple-id uuid='{F3132523-06E1-4F6D-90EE-0AB7E2CB315F}' />
-    </window>
-    <window class='dashboard' name='pov'>
-      <viewpoints>
-        <viewpoint name='pov_%' />
-        <viewpoint name='pov_number'>
-          <zoom type='entire-view' />
-        </viewpoint>
-      </viewpoints>
-      <active id='33' />
-      <simple-id uuid='{7086F261-5A21-412F-B54F-B0DCF2BE8494}' />
     </window>
     <window class='worksheet' name='partners by county'>
       <cards>
@@ -5611,7 +5669,7 @@
     </window>
     <window class='dashboard' name='page 2'>
       <viewpoints />
-      <active id='10' />
+      <active id='8' />
       <simple-id uuid='{C5444F15-ADB7-4BEA-9876-B8809F38FD2C}' />
     </window>
     <window class='dashboard' name='page 3'>
@@ -5619,20 +5677,30 @@
       <active id='8' />
       <simple-id uuid='{CD707BE5-BD46-4724-B665-F8EECFE119BF}' />
     </window>
+    <window class='dashboard' name='pov'>
+      <viewpoints>
+        <viewpoint name='pov_%' />
+        <viewpoint name='pov_number'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='27' />
+      <simple-id uuid='{7086F261-5A21-412F-B54F-B0DCF2BE8494}' />
+    </window>
     <window class='dashboard' name='rent d'>
       <viewpoints>
         <viewpoint name='rent'>
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='3' />
+      <active id='35' />
       <simple-id uuid='{49C02BA2-CCC5-4FB8-89C6-5D9A3AF16B7E}' />
     </window>
     <window class='dashboard' name='ndc survey #1'>
       <viewpoints>
         <viewpoint name='ndc survey 1' />
       </viewpoints>
-      <active id='11' />
+      <active id='10' />
       <simple-id uuid='{1DDE0873-A542-4B17-85B1-304D13B9F7F1}' />
     </window>
     <window class='dashboard' name='ndc survey #2'>
@@ -5665,12 +5733,12 @@
           <zoom type='fit-height' />
         </viewpoint>
       </viewpoints>
-      <active id='3' />
+      <active id='25' />
       <simple-id uuid='{124F66CB-FCCB-40D6-995F-712BBEC31FB6}' />
     </window>
     <window class='dashboard' name='unemployment'>
       <viewpoints />
-      <active id='5' />
+      <active id='7' />
       <simple-id uuid='{2088CD4E-4FF4-4D40-9B86-F62C7EACA8FE}' />
     </window>
     <window class='dashboard' name='tornado'>
@@ -5678,7 +5746,7 @@
       <active id='5' />
       <simple-id uuid='{5476A499-1EB0-4E5D-AB24-CA3FC426772D}' />
     </window>
-    <window class='dashboard' name='Story 1'>
+    <window class='dashboard' maximized='true' name='Story 1'>
       <viewpoints />
       <active id='5' />
       <simple-id uuid='{A7FFDA38-3910-4C0A-8725-4593404EB430}' />
@@ -5750,7 +5818,7 @@
       </cards>
       <simple-id uuid='{92434CB0-AECF-4351-8A68-54A1FB01637D}' />
     </window>
-    <window class='worksheet' maximized='true' name='CCDF'>
+    <window class='worksheet' name='CCDF'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -5812,7 +5880,7 @@
       <viewpoints>
         <viewpoint name='CCDF' />
       </viewpoints>
-      <active id='8' />
+      <active id='3' />
       <simple-id uuid='{086B9A2A-320A-4AF9-BDF5-873BA4241BD7}' />
     </window>
   </windows>

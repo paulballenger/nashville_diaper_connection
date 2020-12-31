@@ -1056,8 +1056,8 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.11umnig1g5rt311fxavmj0lso14w].[avg:Longitude:qk]' field-type='quantitative' max='-9596013.71101675' min='-9718509.4179533701' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.11umnig1g5rt311fxavmj0lso14w].[avg:Latitude:qk]' field-type='quantitative' max='4355207.5406438699' min='4264167.5187282739' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.11umnig1g5rt311fxavmj0lso14w].[avg:Longitude:qk]' field-type='quantitative' max='-9618259.6781661585' min='-9696263.4508039616' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.11umnig1g5rt311fxavmj0lso14w].[avg:Latitude:qk]' field-type='quantitative' max='4332447.5351649709' min='4286927.5242071729' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
           </style-rule>
           <style-rule element='mark'>
             <encoding attr='color' field='[federated.11umnig1g5rt311fxavmj0lso14w].[sum:Total:qk]' palette='orange_gold_10_0' type='interpolated' />
@@ -1281,7 +1281,7 @@
       </cards>
       <simple-id uuid='{B76098B6-A7B9-41E2-95E3-47FD0B5A9527}' />
     </window>
-    <window class='worksheet' name='partner map'>
+    <window class='worksheet' maximized='true' name='partner map'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1397,7 +1397,7 @@
       </cards>
       <simple-id uuid='{905B81CE-1E93-4161-8650-9FF785562085}' />
     </window>
-    <window class='dashboard' maximized='true' name='Dashboard 1'>
+    <window class='dashboard' name='Dashboard 1'>
       <viewpoints>
         <viewpoint name='ndc survey 1' />
       </viewpoints>
