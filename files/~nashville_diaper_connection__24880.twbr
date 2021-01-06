@@ -4573,7 +4573,7 @@
               <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97102' id='1' param='vert' removable='false' w='98558' x='721' y='1449'>
                 <zone _.fcp.SetMembershipControl.false...type='flipboard-nav' _.fcp.SetMembershipControl.true...type-v2='flipboard-nav' h='14312' id='4' paired-zone-id='5' removable='false' w='98558' x='721' y='1449' />
                 <zone _.fcp.SetMembershipControl.false...type='flipboard' _.fcp.SetMembershipControl.true...type-v2='flipboard' h='82790' id='5' paired-zone-id='4' removable='false' w='98558' x='721' y='15761'>
-                  <flipboard active-id='26' nav-type='number' show-nav-arrows='true'>
+                  <flipboard active-id='27' nav-type='number' show-nav-arrows='true'>
                     <story-points>
                       <story-point captured-sheet='Title Page' id='5' />
                       <story-point captured-sheet='page 2' id='6' />
@@ -6344,7 +6344,7 @@
               <run fontcolor='#ffffff' fontsize='8'>Slide #2 - Diaper need - </run>
               <run auto-url='true' fontcolor='#ffffff' fontsize='8' hyperlink='tabdoc:load-url url=&amp;quot;https://pediatrics.aappublications.org/content/132/2/253&amp;quot;' underline='true'>https://pediatrics.aappublications.org/content/132/2/253</run>
               <run>Æ&#10;</run>
-              <run fontcolor='#ffffff' fontsize='8'>Diapers costs - </run>
+              <run fontcolor='#ffffff' fontsize='8'>Diaper cost - </run>
               <run auto-url='true' fontcolor='#ffffff' fontsize='8' hyperlink='tabdoc:load-url url=&amp;quot;https://nationaldiaperbanknetwork.org/&amp;quot;' underline='true'>https://nationaldiaperbanknetwork.org/</run>
               <run>Æ&#10;&#10;</run>
               <run fontcolor='#ffffff' fontsize='8'>Slide #4 - TANF Spending - </run>
@@ -6425,7 +6425,7 @@
                     <run fontcolor='#ffffff' fontsize='8'>Slide #2 - Diaper need - </run>
                     <run auto-url='true' fontcolor='#ffffff' fontsize='8' hyperlink='tabdoc:load-url url=&amp;quot;https://pediatrics.aappublications.org/content/132/2/253&amp;quot;' underline='true'>https://pediatrics.aappublications.org/content/132/2/253</run>
                     <run>Æ&#10;</run>
-                    <run fontcolor='#ffffff' fontsize='8'>Diapers costs - </run>
+                    <run fontcolor='#ffffff' fontsize='8'>Diaper cost - </run>
                     <run auto-url='true' fontcolor='#ffffff' fontsize='8' hyperlink='tabdoc:load-url url=&amp;quot;https://nationaldiaperbanknetwork.org/&amp;quot;' underline='true'>https://nationaldiaperbanknetwork.org/</run>
                     <run>Æ&#10;&#10;</run>
                     <run fontcolor='#ffffff' fontsize='8'>Slide #4 - TANF Spending - </run>

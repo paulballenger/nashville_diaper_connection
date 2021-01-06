@@ -2,7 +2,7 @@
 
 ## Table of contents
 * Introduction
-* Screenshots
+* Inspiration
 * Technologies
 * Setup
 * Contributing
@@ -17,7 +17,20 @@ In the analysis, I looked at 3 things:
 * The demographics of poverty in middle TN
 * Nashville Diaper Connection impact on alleviating diaper need
 
-The reason I chose to work with Nashville Diaper Connection is because I know the founder and have been inspired by his achievement in founding and growing his organization, and I also liked the chance to work on a real-life scenario.
+## Inspiration
+
+The reason I chose to work with Nashville Diaper Connection is because I know the founder and have watched the growth of his organization since its founding in 2013, and I was also drawn by the chance to work on a real-life scenario.
+
+## Screenshots
+
+![screenshot_1](https://github.com/paulballenger/nashville_diaper_connection/blob/main/files/screenshot_1.png
+)
+
+![screenshot_2](https://github.com/paulballenger/nashville_diaper_connection/blob/main/files/screenshot_2.png
+)
+
+![screenshot_3](https://github.com/paulballenger/nashville_diaper_connection/blob/main/files/screenshot_3.png
+)
 
 ## Technologies
 
@@ -30,7 +43,17 @@ The reason I chose to work with Nashville Diaper Connection is because I know th
 * Tableau
 
 ## Sources
-* [tn.gov](https://www.tn.gov/content/dam/tn/health/documents/annual-reports/2018-Annual-Imm-24-Month-Old-Survey.pdf) - Immunization rates in TN
+* [Nashville Diaper Connection](https://www.nashvillediaperconnection.org/)
+* [Pediatrics](https://pediatrics.aappublications.org/content/132/2/253) - diaper need
+
+* [National Diaper Bank Network](https://nationaldiaperbanknetwork.org/) - diaper cost
+
+* [cbpp.org](https://www.cbpp.org/sites/default/files/atoms/files/tanf_spending_tn.pdf) - TANF Spending
+
+* [Congressional Research Service](https://fas.org/sgp/crs/misc/RL32760.pdf) - TANF data for 2018
+
+* [Tennessean](https://www.tennessean.com/story/news/2019/11/05/child-care-low-income-families-federal-funding-tennessee/4154580002/) - CCDBG 
+
 * [census.gov](https://www.census.gov/data-tools/demo/saipe/#/?map_geoSelector=u18_c&s_state=47&s_year=2019&s_county=47021,47037,47081,47117,47119,47125,47141,47149,47187,47189&s_measures=u18_snc) - Under age 18 poverty in TN counties by year
 * [kidscount.org](https://datacenter.kidscount.org/data/tables/2983-children-receiving-families-first-grants-tanf#detailed/2/any/false/1729,37,871,870,573,869,36,868,867,133/any/13220,10111) - Children receiving Families First grants (TANF) in Tennessee
 * [kidscount.org](https://datacenter.kidscount.org/data/tables/3027-fair-market-rent?loc=44&loct=5#detailed/5/6430,6438,6460,6476-6477,6482,6490,6494,6513-6514/false/1729,37,871,870,573,869,36,868,867,133/any/6258) - Fair Market Rent in Tennessee
@@ -39,17 +62,15 @@ The reason I chose to work with Nashville Diaper Connection is because I know th
 
 * [Department of Labor and Workforce Development](https://www.tn.gov/content/dam/tn/workforce/documents/economicanalysis/EconomicAnalysisSep20.pdf) - unemployment data
 
-* [Congressional Research Service](https://fas.org/sgp/crs/misc/RL32760.pdf) - TANF data for 2018
 
-* [Center on Budget and Policy Priorities](
-    
-) - TANF spending for Tennessee data
 
-<project_name>
-To use <project_name>, follow these steps:
 
-<usage_example>
-Add run commands and examples you think users will find useful. Provide an options reference for bonus points!
+
+* [Tennessean](https://www.tennessean.com/story/news/2019/09/14/childcare-tennessee-workforce-child-care-needs-cost-revenue-families/2266422001/) - Child Care Cost and Economic Loss
+
+* [PPIC](https://www.ppic.org/publication/the-impact-of-expanding-public-preschool-on-child-poverty-in-california/) - Child Care and Poverty Levels
+
+
 
 ## Contributors
 Thanks to the following people at Nashville Diaper Connection who helped with this project:
