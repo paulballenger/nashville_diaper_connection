@@ -47,7 +47,7 @@ The reason I chose to work with Nashville Diaper Connection is because I know th
 
 ## Setup
 
-To view finshed Tableau story, download files/nashville_diaper_connection.twb or view in PowerPoint by downloading files/nashville_diaper_connection.ppt
+To view finished Tableau story, download files/nashville_diaper_connection.twb or view in PowerPoint by downloading files/nashville_diaper_connection.pptx
 
 ## Sources
 * [Nashville Diaper Connection](https://www.nashvillediaperconnection.org/) - NCD data
