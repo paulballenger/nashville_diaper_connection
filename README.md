@@ -3,9 +3,12 @@
 ## Table of contents
 * Introduction
 * Inspiration
+* Screenshots
 * Technologies
 * Setup
-* Contributing
+* Sources
+* Contributors
+* License
 * Contact
 
 ## Introduction
@@ -72,8 +75,6 @@ To view finshed Tableau story, download files/nashville_diaper_connection.twb or
 * [Tennessean](https://www.tennessean.com/story/news/2019/09/14/childcare-tennessee-workforce-child-care-needs-cost-revenue-families/2266422001/) - Child Care Cost and Economic Loss
 
 * [PPIC](https://www.ppic.org/publication/the-impact-of-expanding-public-preschool-on-child-poverty-in-california/) - Child Care and Poverty Levels
-
-
 
 ## Contributors
 Thanks to the following people at Nashville Diaper Connection who helped with this project:
