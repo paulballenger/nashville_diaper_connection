@@ -4573,7 +4573,7 @@
               <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97102' id='1' param='vert' removable='false' w='98558' x='721' y='1449'>
                 <zone _.fcp.SetMembershipControl.false...type='flipboard-nav' _.fcp.SetMembershipControl.true...type-v2='flipboard-nav' h='14312' id='4' paired-zone-id='5' removable='false' w='98558' x='721' y='1449' />
                 <zone _.fcp.SetMembershipControl.false...type='flipboard' _.fcp.SetMembershipControl.true...type-v2='flipboard' h='82790' id='5' paired-zone-id='4' removable='false' w='98558' x='721' y='15761'>
-                  <flipboard active-id='27' nav-type='number' show-nav-arrows='true'>
+                  <flipboard active-id='26' nav-type='number' show-nav-arrows='true'>
                     <story-points>
                       <story-point captured-sheet='Title Page' id='5' />
                       <story-point captured-sheet='page 2' id='6' />
@@ -6372,7 +6372,7 @@
               <run auto-url='true' fontcolor='#ffffff' fontsize='8' hyperlink='tabdoc:load-url url=&amp;quot;https://www.tennessean.com/story/news/2019/09/14/childcare-tennessee-workforce-child-care-needs-cost-revenue-families/2266422001/&amp;quot;' underline='true'>https://www.tennessean.com/story/news/2019/09/14/childcare-tennessee-workforce-child-care-needs-cost-revenue-families/2266422001/</run>
               <run fontcolor='#ffffff' fontsize='8'>Æ </run>
               <run>Æ&#10;&#10;</run>
-              <run fontcolor='#ffffff' fontsize='8'>Slide #15 - Lower Child Poverty - </run>
+              <run fontcolor='#ffffff' fontsize='8'>Slide #15 - Child Care and Lower Child Poverty - </run>
               <run auto-url='true' fontcolor='#ffffff' fontsize='8' hyperlink='tabdoc:load-url url=&amp;quot;https://www.ppic.org/publication/the-impact-of-expanding-public-preschool-on-child-poverty-in-california/&amp;quot;' underline='true'>https://www.ppic.org/publication/the-impact-of-expanding-public-preschool-on-child-poverty-in-california/</run>
               <run>Æ&#10;&#10;</run>
               <run fontcolor='#ffffff' fontsize='8'>Images: Baby photo #1 - </run>
@@ -6453,7 +6453,7 @@
                     <run auto-url='true' fontcolor='#ffffff' fontsize='8' hyperlink='tabdoc:load-url url=&amp;quot;https://www.tennessean.com/story/news/2019/09/14/childcare-tennessee-workforce-child-care-needs-cost-revenue-families/2266422001/&amp;quot;' underline='true'>https://www.tennessean.com/story/news/2019/09/14/childcare-tennessee-workforce-child-care-needs-cost-revenue-families/2266422001/</run>
                     <run fontcolor='#ffffff' fontsize='8'>Æ </run>
                     <run>Æ&#10;&#10;</run>
-                    <run fontcolor='#ffffff' fontsize='8'>Slide #15 - Lower Child Poverty - </run>
+                    <run fontcolor='#ffffff' fontsize='8'>Slide #15 - Child Care and Lower Child Poverty - </run>
                     <run auto-url='true' fontcolor='#ffffff' fontsize='8' hyperlink='tabdoc:load-url url=&amp;quot;https://www.ppic.org/publication/the-impact-of-expanding-public-preschool-on-child-poverty-in-california/&amp;quot;' underline='true'>https://www.ppic.org/publication/the-impact-of-expanding-public-preschool-on-child-poverty-in-california/</run>
                     <run>Æ&#10;&#10;</run>
                     <run fontcolor='#ffffff' fontsize='8'>Images: Baby photo #1 - </run>
